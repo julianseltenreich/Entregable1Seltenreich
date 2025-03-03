@@ -9,18 +9,14 @@ function paciente(){
     let nombre = prompt("Ingrese su nombre: ");
     let apellido = prompt("ingrese su apellido: ");
     let dni = parseInt(prompt("Ingrese su numero de dni: "));
-    
     return {nombre, apellido, dni}
     
 }
             
 function mostrarTurnos(turnos){
-    
-
     let mensaje = "Los turnos disponibles son los siguientes:\n";
-
     for (const dia in turnos) {
-        mensaje += `${dia}: ${turnos[dia].join(', ')}\n`;
+                mensaje += `${dia}: ${turnos[dia].join(', ')}\n`;
     }
 
     alert(mensaje);
@@ -54,7 +50,7 @@ function cancelarTurno(turnos) {
           if (turnos[dia] && !turnos[dia].includes(horario)){
             alert(`El turno fue cancelado correctamente`);
             turnos[dia].push(horario);
-            turnos[dia].sort();
+            turnos[dia].sort((a , b) => a - b);
           } else {
              alert(`El turno que intentas cancelar no esta agendado`);
      } 
